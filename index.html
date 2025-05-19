@@ -21,8 +21,8 @@
           try {
             const data2 = JSON.parse(xmlHttp.responseText);
             saveData(data2);
-
-            data2.forEach((element) => {
+            const data = loadData();    
+            data.forEach((element) => {
               const item = document.createElement("div");
               item.className = "phonebooke-item";
 

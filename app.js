@@ -8,7 +8,7 @@ xmlHttp.onreadystatechange = () => {
         console.log(xmlHttp.responseText);
         try {
             const data2 = JSON.parse(xmlHttp.responseText);
-            loadData(data2);
+            saveData(data2);
 
             data2.forEach((element) => {
                 const item = document.createElement("div");

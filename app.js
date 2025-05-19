@@ -7,10 +7,11 @@ xmlHttp.onreadystatechange = () => {
     if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
         console.log(xmlHttp.responseText);
         try {
-            const data2 = JSON.parse(xmlHttp.responseText);
-            saveData(data2);
+            const jsonResult = JSON.parse(xmlHttp.responseText);
+            saveData(jsonResult,"data");
+            const data = loadData("data");
 
-            data2.forEach((element) => {
+            data.forEach((element) => {
                 const item = document.createElement("div");
                 item.className = "phonebooke-item";
 

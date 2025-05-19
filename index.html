@@ -6,49 +6,21 @@
 
     <title>Document</title>
     <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   </head>
   <body>
-    <div id="app"></div>
-    <script>
-      const app = document.querySelector("#app");
-      const xmlHttp = new XMLHttpRequest();
-      xmlHttp.open("get", "phonebook.json");
-      xmlHttp.send();
-      xmlHttp.onreadystatechange = () => {
-        if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
-          console.log(xmlHttp.responseText);
-          try {
-            const data2 = JSON.parse(xmlHttp.responseText);
+    <div id="main">
+      <div id="content">
+        <nav id="title">
+          <span>연락처</span>
+        </nav>
+        <div id="app">
 
-            data2.forEach((element) => {
-              const item = document.createElement("div");
-              item.className = "phonebooke-item";
+        </div>
+      </div>
+    </div>
 
-              const profileImage = document.createElement("img");
-              profileImage.src = element.pic;
-              const porfileName = document.createElement("span");
-              porfileName.textContent= element.name;
-              const porfileHp = document.createElement("span");
-              porfileHp.textContent= element.hp;
-              item.appendChild(profileImage)
-              item.appendChild(porfileName)
-              item.appendChild(porfileHp)
-              app.appendChild(item);
-              console.log("element:" + element);
-            });
-          } catch (e) {
-            console.log(e);
-          }
-          /*
-            data2.forEach(elment => {
-                if (element.id === id) {
-                    console.log(elment);
-                    return;
-                }
-            });
-            */
-        }
-      };
-    </script>
+
+    <script src="/app.js"></script>
   </body>
 </html>

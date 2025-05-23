@@ -1,7 +1,7 @@
-function saveData(jsonData,key="listItem"){
+export  function saveData(jsonData,key="listItem"){
     localStorage.setItem(key,JSON.stringify(jsonData));
 }
-function loadData(key="listItem"){
+export function loadData(key="listItem"){
     const data = localStorage.getItem(key);
     
     if(!data){

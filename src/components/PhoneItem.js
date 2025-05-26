@@ -14,7 +14,7 @@ export default function PhoneItem(id, name, phone, email, pic) {
 
     item.addEventListener("click", () => {
         console.log("상세 페이지로 이동 " + id + "," + name)
-        window.location.href = "./info.html";
+        window.location.href = `./info.html?id=${id}`;
     })
     return item;
 

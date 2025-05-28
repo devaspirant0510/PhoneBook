@@ -4,13 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <script src="https://kit.fontawesome.com/6cbdf73c90.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <div id="main">
     <div id="content">
-      <header>뒤로가기 메뉴 버튼</header>
+      <header id="header">
+        <button><i class="fa-solid fa-arrow-left"></i></button>
+        <button id="menu"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+      </header>
       <img id="profile-pic">
+      <div id="menu-con">
+        <button id="update">수정</button>
+        <button id="delete">삭제</button>
+      </div>
       <section>
         <div>
           <div>이름</div>
@@ -32,8 +40,5 @@
       <footer></footer>
     </div>
   </div>
-
-  <script type="module" src="./info.js"></script>
 </body>
-
 </html>

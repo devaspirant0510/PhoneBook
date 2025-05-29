@@ -1,0 +1,72 @@
+/* src/components/ConfirmModal.css */
+/* 모달 배경: 화면 전체를 덮고 반투명하게 설정 */
+#confirm-modal-overlay {
+    position: fixed; /* 화면 기준 위치 고정 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 배경 */
+    display: none; /* 기본적으로 숨김 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    z-index: 1000; /* 다른 요소들 위에 표시 */
+}
+
+/* 모달 창: 흰색 배경에 그림자 효과 */
+#confirm-modal {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+/* 메시지 텍스트 스타일 */
+#confirm-modal p {
+    margin-bottom: 25px; /* 버튼과의 간격 */
+    font-size: 16px;
+    line-height: 1.5; /* 줄 간격 */
+}
+
+/* 버튼 그룹: 버튼들을 수평으로 배치 */
+#confirm-modal-buttons {
+    display: flex;
+    justify-content: center; /* 버튼 중앙 정렬 */
+    gap: 15px; /* 버튼 사이 간격 */
+}
+
+/* 공통 버튼 스타일 */
+#confirm-modal-buttons button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s ease; /* 부드러운 색상 전환 효과 */
+}
+
+/* 확인 버튼 스타일 */
+#confirm-ok-btn {
+    background-color: #5cb85c; /* 초록색 계열 */
+    color: white;
+}
+
+/* 취소 버튼 스타일 */
+#confirm-cancel-btn {
+    background-color: #d9534f; /* 빨간색 계열 */
+    color: white;
+}
+
+/* 확인 버튼 호버 효과 */
+#confirm-ok-btn:hover {
+    background-color: #4cae4c;
+}
+
+/* 취소 버튼 호버 효과 */
+#confirm-cancel-btn:hover {
+    background-color: #c9302c;
+}

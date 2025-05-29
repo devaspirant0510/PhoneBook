@@ -93,11 +93,5 @@ deleteBtn.addEventListener("click", () => {
 
 //  뒤로가기 버튼 클릭 시, 브라우저의 이전 페이지로 이동합니다.
 backBtn.addEventListener("click", () => {
-    window.history.back();
-});
-
-let back = document.querySelector("#back")
-
-back.addEventListener("click", () => {
-  window.location.href = "./list.html";
+    window.location.href = "./list.html";
 });

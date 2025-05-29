@@ -46,6 +46,19 @@ body, html{
 .phonebook-item > i{
     font-size: 25px;
 }
+#search{
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+#input-search{
+    padding: 10px;
+    width: 85%;
+    margin: 10px;
+    box-sizing: border-box;
+
+
+}
 @media screen and (max-width: 768px){
 
 }

@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>새 연락처 추가</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="../edit/edit.css">
+  </head>
 <body>
-<h1>추가 페이지 테스트 화면</h1>
-<button id="btn-add">테스트 추가</button>
-
+  <div id="main">
+    <div id="content">
+      <nav id="title">
+        <i id="back" class="fa-solid fa-arrow-left fa"></i>
+        <span>새 연락처 추가</span>
+        <span></span> </nav>
+      <div id="app">
+        <div class="profile">
+          <img id="profile-pic" src="/images/default.jpg" alt="profile">
+        </div>
+        <div class="write"><b>이름</b><input type="text" id="name" placeholder="이름을 입력하세요"></div>
+        <div class="write"><b>그룹</b><input type="text" id="group" placeholder="그룹 (예: 친구, 가족)"></div>
+        <div class="write"><b>전화번호</b><input type="text" id="phone" placeholder="전화번호를 입력하세요"></div>
+        <div class="write"><b>이메일</b><input type="text" id="email" placeholder="이메일을 입력하세요"></div>
+        <div class="button-group">
+          <input type="button" value="취소" class="btn" id="cancel">
+          <input type="button" value="저장" class="btn" id="save">
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

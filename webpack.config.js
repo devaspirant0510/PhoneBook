@@ -8,6 +8,7 @@ module.exports = {
         list: "./src/view/list/list.js",
         info: "./src/view/info/info.js",
         create: "./src/view/create/create.js",
+        edit: "./src/view/edit/edit.js",
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -37,6 +38,11 @@ module.exports = {
             template: "./src/view/create/create.html",
             filename: "create.html",
             chunks: ["create"]
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/view/edit/edit.html",
+            filename: "edit.html",
+            chunks: ["edit"]
         }),
     ]
 

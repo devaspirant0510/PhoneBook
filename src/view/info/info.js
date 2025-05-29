@@ -36,11 +36,28 @@ if (person) {
     window.location.href = "./list.html";
 }
 
+
 //  메뉴 버튼 클릭 시 메뉴 컨테이너를 토글(보이기/숨기기)합니다.
 menuBtn.addEventListener("click", (e) => {
  e.stopPropagation(); //  이벤트가 부모 요소로 전파되는 것을 막습니다.
  //  메뉴 컨테이너의 display 상태를 확인하여 토글합니다.
  menuContainer.style.display = menuContainer.style.display === "flex" ? "none" : "flex";
+
+
+let menu = document.querySelector("#menu");
+let menucon = document.querySelector("#menu-con");
+
+// 메뉴 버튼 클릭 시 토글
+menu.addEventListener("click", (e) => {
+  e.stopPropagation(); // 다른 클릭 이벤트에 영향을 주지 않기 위해 버블링 방지
+  console.log(menucon.style.display);
+
+  if (menucon.style.display === "block") {
+    menucon.style.display = "none";
+  } else {
+    menucon.style.display = "block";
+  }
+
 });
 
 //  문서 전체를 클릭했을 때, 메뉴 영역이 아닌 곳을 클릭하면 메뉴를 숨깁니다.
@@ -50,6 +67,7 @@ document.addEventListener("click", (e) => {
     menuContainer.style.display = "none";
   }
 });
+
 
 //  수정 버튼 클릭 시, 현재 ID를 가지고 수정 페이지로 이동합니다.
 updateBtn.addEventListener("click", () => {
@@ -76,3 +94,9 @@ deleteBtn.addEventListener("click", () => {
 backBtn.addEventListener("click", () => {
     window.history.back();
 });
+
+let back = document.querySelector("#back")
+
+back.addEventListener("click", () => {
+  window.location.href = "./list.html";
+})

@@ -44,3 +44,9 @@ document.addEventListener("click", (e) => {
   }
 });
 
+const updateBtn = document.getElementById("update");
+updateBtn.addEventListener("click", () => {
+  window.location.href = `edit.html?id=${id}`;
+});
+
+

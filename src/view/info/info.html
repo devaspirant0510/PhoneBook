@@ -8,37 +8,47 @@
 </head>
 
 <body>
-  <div id="main">
-    <div id="content">
-      <header id="header">
-        <button><i class="fa-solid fa-arrow-left"></i></button>
-        <button id="menu"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-      </header>
-      <img id="profile-pic">
+  <div id="content">
+    <header id="header">
+      <button id="back"><i class="fa-solid fa-arrow-left"></i></button>
+      <button id="menu"><i class="fa-solid fa-ellipsis-vertical"></i></button>
       <div id="menu-con">
-        <button id="update">수정</button>
-        <button id="delete">삭제</button>
+        <button id="update">연락처 수정</button>
+        <button id="delete">연락처 삭제</button>
+        <button id="share">연락처 공유</button>
       </div>
-      <section>
-        <div>
-          <div>이름</div>
-          <h2 id="profile-name"></h2>
-        </div>
-        <div>
-          <div>그룹</div>
-          <h2 id="profile-group"></h2>
-        </div>
-        <div>
-          <div>전화번호</div>
-          <p id="profile-phone"></p>
-        </div>
-        <div>
-          <div>이메일</div>
-          <p id="profile-email"></p>
-        </div>
-      </section>
-      <footer></footer>
+    </header>
+    <div id="img-div">
+      <img id="profile-pic">
     </div>
+    <section id="user">
+      <div id="name">
+        <div>
+          <p>이름</p>
+        </div>
+        <p id="profile-name"></p>
+      </div>
+      <div id="group">
+        <div>
+          <p>그룹</p>
+        </div>
+        <p id="profile-group"></p>
+      </div>
+      <div id="phone">
+        <div>
+          <p>전화번호</p>
+        </div>
+        <p id="profile-phone"></p>
+      </div>
+      <div id="email">
+        <div>
+          <p>이메일</p>
+        </div>
+        <p id="profile-email"></p>
+      </div>
+    </section>
+    <footer></footer>
   </div>
 </body>
+
 </html>

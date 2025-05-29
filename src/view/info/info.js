@@ -27,10 +27,10 @@ let menucon = document.querySelector("#menu-con");
 
 // 메뉴 버튼 클릭 시 토글
 menu.addEventListener("click", (e) => {
- e.stopPropagation(); // 다른 클릭 이벤트에 영향을 주지 않기 위해 버블링 방지
- console.log(menucon.style.display);
- 
-  if (menucon.style.display==="block") {
+  e.stopPropagation(); // 다른 클릭 이벤트에 영향을 주지 않기 위해 버블링 방지
+  console.log(menucon.style.display);
+
+  if (menucon.style.display === "block") {
     menucon.style.display = "none";
   } else {
     menucon.style.display = "block";
@@ -44,3 +44,8 @@ document.addEventListener("click", (e) => {
   }
 });
 
+let back = document.querySelector("#back")
+
+back.addEventListener("click", () => {
+  window.location.href = "./list.html";
+})

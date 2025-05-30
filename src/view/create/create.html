@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>새 연락처 추가</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="stylesheet" href="../edit/edit.css">
-  </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>새 연락처 추가</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
 <body>
-  <div id="main">
+<div id="main">
     <div id="content">
-      <nav id="title">
-        <i id="back" class="fa-solid fa-arrow-left fa"></i>
-        <span>새 연락처 추가</span>
-        <span></span> </nav>
-      <div id="app">
-        <div class="profile">
-          <img id="profile-pic" src="/images/default.jpg" alt="profile">
+        <nav id="title">
+            <i id="back" class="fa-solid fa-arrow-left fa"></i>
+            <span>새 연락처 추가</span>
+            <span style="width: 21px"></span>
+        </nav>
+        <div id="app">
+            <div class="profile">
+                <img id="profile-pic" src="/images/default.jpg" alt="profile">
+            </div>
+            <div class="write"><label for="name" class="form-label"><b>이름</b></label><input type="text" id="name"
+                                                                                            placeholder="이름을 입력하세요">
+            </div>
+            <div class="write"><label for="group" class="form-label"><b>그룹</b></label><input type="text" id="group"
+                                                                                              placeholder="그룹 (예: 친구, 가족)">
+            </div>
+            <div class="write"><label for="phone" class="form-label"><b>전화번호</b></label><input type="text" id="phone"
+                                                                                                placeholder="전화번호를 입력하세요">
+            </div>
+            <div class="write"><label for="email" class="form-label"><b>이메일</b></label><input type="text" id="email"
+                                                                                               placeholder="이메일을 입력하세요">
+            </div>
         </div>
-        <div class="write"><b>이름</b><input type="text" id="name" placeholder="이름을 입력하세요"></div>
-        <div class="write"><b>그룹</b><input type="text" id="group" placeholder="그룹 (예: 친구, 가족)"></div>
-        <div class="write"><b>전화번호</b><input type="text" id="phone" placeholder="전화번호를 입력하세요"></div>
-        <div class="write"><b>이메일</b><input type="text" id="email" placeholder="이메일을 입력하세요"></div>
-        <div class="button-group">
-          <input type="button" value="취소" class="btn" id="cancel">
-          <input type="button" value="저장" class="btn" id="save">
+        <div class="d-flex gap-2 container-fluid mb-2">
+            <input type="button" value="취소" class="w-50 btn btn-outline-danger" id="cancel">
+            <input type="button" value="저장" class="w-50 flex-shrink-1 btn btn-outline-success" id="save">
         </div>
-      </div>
     </div>
-  </div>
+</div>
 </body>
 </html>

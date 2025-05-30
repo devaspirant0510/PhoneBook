@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     mode: "development",
+    devtool: "source-map",
     entry: {
         list: "./src/view/list/list.js",
         info: "./src/view/info/info.js",
@@ -19,6 +20,40 @@ module.exports = {
             {
                 test: /\.css$/i,
                 use: [MiniCssExtractPlugin.loader, "css-loader"]
+            },
+            {
+                test: /\.(scss)$/,
+                use: [{
+                    // inject CSS to page
+                    loader: 'style-loader'
+                }, {
+                    // translates CSS into CommonJS modules
+                    loader: 'css-loader'
+                }, {
+                    // Run postcss actions
+                    loader: 'postcss-loader',
+                    options: {
+                        // `postcssOptions` is needed for postcss 8.x;
+                        // if you use postcss 7.x skip the key
+                        postcssOptions: {
+                            // postcss plugins, can be exported to postcss.config.js
+                            plugins: function () {
+                                return [
+                                    require('autoprefixer')
+                                ];
+                            }
+                        }
+                    }
+                }, {
+                    // compiles Sass to CSS
+                    loader: 'sass-loader',
+                    options: {
+                        sassOptions: {
+                            silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import'],
+                        }
+                    }
+
+                }]
             },
         ]
     },

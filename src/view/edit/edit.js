@@ -1,7 +1,10 @@
 import "./edit.css";
+import "../../index.scss";
 // localStorage 라이브러리와 ConfirmModal 라이브러리를 임포트합니다.
-import { loadData, saveData } from "../../lib/localstroageLib";
-import { showConfirm } from "../../components/ConfirmModal";
+import {loadData, saveData} from "../../lib/localstroageLib";
+import {showConfirm} from "../../components/ConfirmModal";
+import {showToastMessage} from "../../components/ToastMessage";
+import {validEmail, validPhoneNumber} from "../../lib/regexLib";
 
 // URL 쿼리 파라미터에서 'id' 값을 가져옵니다.
 const params = new URLSearchParams(window.location.search);
@@ -24,39 +27,57 @@ const backBtn = document.getElementById("back");
 
 // 대상 데이터가 있으면 입력 필드에 값을 채우고, 없으면 경고 후 목록으로 이동합니다.
 if (target) {
-  nameInput.value = target.name;
-  profilePic.src = target.pic || "/images/default.jpg"; // pic 없으면 기본 이미지
-  phoneInput.value = target.hp;
-  emailInput.value = target.email;
-  groupInput.value = target.group;
+    nameInput.value = target.name;
+    profilePic.src = target.pic || "/images/default.jpg"; // pic 없으면 기본 이미지
+    phoneInput.value = target.hp;
+    emailInput.value = target.email;
+    groupInput.value = target.group;
 } else {
-    alert("수정할 연락처 정보를 찾을 수 없습니다.");
-    window.location.href = "./list.html";
+    showToastMessage("수정할 연락처 정보를 찾을수 없습니다.", "error")
+    setTimeout(() => {
+        window.location.href = "./list.html";
+    }, 1200)
 }
 
 // 저장 버튼 클릭 이벤트 리스너입니다.
 saveBtn.addEventListener("click", () => {
-  // 필수 입력 필드(이름, 전화번호) 검사
-  if (!nameInput.value || !phoneInput.value) {
-      alert("이름과 전화번호는 필수입니다.");
-      return;
-  }
-  // showConfirm 함수를 호출하여 사용자에게 저장 여부를 묻습니다.
-  showConfirm("수정된 내용을 저장하시겠습니까?", () => {
-    // '확인'을 누르면 입력된 값으로 target 객체를 업데이트합니다.
-    target.name = nameInput.value;
-    target.hp = phoneInput.value;
-    target.email = emailInput.value;
-    target.group = groupInput.value;
-    // 사진 변경 기능은 현재 구현되지 않았습니다.
-    // target.pic = profilePic.src;
+    // 필수 입력 필드(이름, 전화번호) 검사
+    if (!nameInput.value.trim()) {
+        showToastMessage("이름을 입력해주세요.", "error")
+        nameInput.focus();
+        return;
+    }
+    if (!phoneInput.value.trim()) {
+        showToastMessage("전화번호를 입력해주세요.", "error")
+        phoneInput.focus();
+        return;
+    }
+    if (!validPhoneNumber(phoneInput.value)) {
+        showToastMessage("올바른 전화번호를 입력해주세요", "error")
+        phoneInput.focus()
+        return;
+    }
+    if (emailInput.value.trim() !== "" && !validEmail(emailInput.value)) {
+        showToastMessage("올바른 이메일을 입력해주세요", "error")
+        emailInput.focus()
+        return;
+    }
+    // showConfirm 함수를 호출하여 사용자에게 저장 여부를 묻습니다.
+    showConfirm("수정된 내용을 저장하시겠습니까?", () => {
+        // '확인'을 누르면 입력된 값으로 target 객체를 업데이트합니다.
+        target.name = nameInput.value;
+        target.hp = phoneInput.value;
+        target.email = emailInput.value;
+        target.group = groupInput.value;
 
-    // 수정된 데이터를 localStorage에 저장합니다.
-    saveData(data, "data");
-    alert("수정되었습니다!");
-    // 저장 후 상세 정보 페이지로 이동합니다 (수정된 내용을 바로 확인).
-    window.location.href = `./info.html?id=${id}`;
-  });
+        // 수정된 데이터를 localStorage에 저장합니다.
+        saveData(data, "data");
+        showToastMessage("수정되었습니다.")
+        setTimeout(()=>{
+            // 저장 후 상세 정보 페이지로 이동합니다 (수정된 내용을 바로 확인).
+            window.location.href = `./info.html?id=${id}`;
+        },1200)
+    });
 });
 
 // 취소 버튼 클릭 이벤트 리스너입니다.
@@ -69,5 +90,5 @@ cancelBtn.addEventListener("click", () => {
 
 // 뒤로가기 버튼(화살표) 클릭 이벤트 리스너입니다.
 backBtn.addEventListener("click", () => {
-  window.history.back(); // 이전 페이지로 이동합니다.
+    window.history.back(); // 이전 페이지로 이동합니다.
 });

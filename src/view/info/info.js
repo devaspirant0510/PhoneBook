@@ -1,7 +1,7 @@
 import "./info.css";
 //  localStorage 라이브러리와 ConfirmModal 라이브러리를 임포트합니다.
-import { loadData, deleteDataById } from "../../lib/localstroageLib";
-import { showConfirm } from "../../components/ConfirmModal";
+import {loadData, deleteDataById} from "../../lib/localstroageLib";
+import {showConfirm} from "../../components/ConfirmModal";
 
 //  URL 쿼리 파라미터에서 'id' 값을 가져옵니다.
 const params = new URLSearchParams(location.search);
@@ -26,11 +26,11 @@ const deleteBtn = document.getElementById("delete-btn");
 
 //  일치하는 연락처 정보가 있으면 화면에 표시하고, 없으면 경고 후 목록으로 이동합니다.
 if (person) {
-  profilePic.src = person.pic || "/images/default.jpg"; //  pic이 없으면 기본 이미지
-  profileName.textContent = person.name;
-  profileGroup.textContent = person.group;
-  profilePhone.textContent = person.hp;
-  profileEmail.textContent = person.email;
+    profilePic.src = person.pic || "/images/default.jpg"; //  pic이 없으면 기본 이미지
+    profileName.textContent = person.name;
+    profileGroup.textContent = person.group;
+    profilePhone.textContent = person.hp;
+    profileEmail.textContent = person.email;
 } else {
     alert("연락처 정보를 찾을 수 없습니다.");
     window.location.href = "./list.html";
@@ -39,7 +39,7 @@ if (person) {
 
 //  메뉴 버튼 클릭 시 메뉴 컨테이너를 토글(보이기/숨기기)합니다.
 menuBtn.addEventListener("click", (e) => {
-    e.stopPropagation(); //  이벤트가 부모 요소로 전파되는 것을 막습니다.
+   e.stopPropagation(); //  이벤트가 부모 요소로 전파되는 것을 막습니다.
     //  메뉴 컨테이너의 display 상태를 확인하여 토글합니다.
     menuContainer.style.display = menuContainer.style.display === "flex" ? "none" : "flex";
 });
@@ -61,18 +61,20 @@ menuBtn.addEventListener("click", (e) => {
 //
 // });
 
-// //  문서 전체를 클릭했을 때, 메뉴 영역이 아닌 곳을 클릭하면 메뉴를 숨깁니다.
-// document.addEventListener("click", (e) => {
-//   //  클릭된 요소가 메뉴 버튼이나 메뉴 컨테이너의 자식이 아니면 메뉴를 숨깁니다.
-//   if (!menuBtn.contains(e.target) && !menuContainer.contains(e.target)) {
-//     menuContainer.style.display = "none";
-//   }
-// });
+//  문서 전체를 클릭했을 때, 메뉴 영역이 아닌 곳을 클릭하면 메뉴를 숨깁니다.
+document.addEventListener("click", (e) => {
+  //  클릭된 요소가 메뉴 버튼이나 메뉴 컨테이너의 자식이 아니면 메뉴를 숨깁니다.
+  if (!menuBtn.contains(e.target) && !menuContainer.contains(e.target)) {
+    menuContainer.style.display = "none";
+  }
+});
 
 
 //  수정 버튼 클릭 시, 현재 ID를 가지고 수정 페이지로 이동합니다.
 updateBtn.addEventListener("click", () => {
-  window.location.href = `./edit.html?id=${id}`;
+    //메뉴창 닫기
+    menuContainer.style.display = "none";
+    window.location.href = `./edit.html?id=${id}`;
 });
 
 //  삭제 버튼 클릭 시, 확인 모달을 띄웁니다.

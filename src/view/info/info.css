@@ -125,7 +125,7 @@ body, html {
 #menu-container {
     display: none; /* 기본 숨김 */
     position: absolute;
-    top: 45px; /* 메뉴 버튼 아래 */
+    top: 40px;
     right: -10px;
     background-color: white;
     border: 1px solid #ccc;

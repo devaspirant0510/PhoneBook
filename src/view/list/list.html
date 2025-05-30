@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Document</title>
-  </head>
-  <body>
-    <div id="main">
-      <div id="content">
+</head>
+<body>
+<div id="main">
+    <div id="content">
         <nav id="title">
-          <span></span>
-          <span>연락처</span>
-          <span><a href="./create.html">추가</a></span>
+            <span style="width: 30px"></span>
+            <span class="fs-1">연락처</span>
+            <span><a href="./create.html"><i id="create-btn" class="fa-solid fa-circle-plus"></i></a></span>
         </nav>
-        <div id="search">
-          <input id="input-search" placeholder="찾으려는 사람을 입력해주세요">
+        <div class="input-icon-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" class="form-control" id="input-search" placeholder="찾으려는 사람을 입력해주세요">
         </div>
+
         <div id="list" style="flex: 1; overflow-y: auto">
 
         </div>
-      </div>
     </div>
+</div>
 
 
-  </body>
+</body>
 </html>

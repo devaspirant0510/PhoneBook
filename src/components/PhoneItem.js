@@ -17,5 +17,4 @@ export default function PhoneItem(id, name, phone, email, pic) {
         window.location.href = `./info.html?id=${id}`;
     })
     return item;
-    
 }

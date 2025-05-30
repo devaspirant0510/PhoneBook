@@ -1,31 +1,23 @@
 /**
  *  데이터를 localStorage에 저장합니다.
- * 저장하기 전에 항상 이름순으로 정렬합니다.
  * @param {Array} jsonData - 저장할 데이터 배열
- * @param {string} [key="listItem"] - 사용할 localStorage 키
+ * @param {string} key - 사용할 localStorage 키
  */
-export function saveData(jsonData, key = "listItem") {
-    //  데이터를 이름 기준으로 오름차순 정렬합니다.
-    let result = jsonData.sort((a, b) => {
-        return a.name.localeCompare(b.name);
-    });
+export function saveData(jsonData, key ) {
     //  정렬된 데이터를 localStorage에 JSON 문자열 형태로 저장합니다.
-    localStorage.setItem(key, JSON.stringify(result));
+    localStorage.setItem(key, JSON.stringify(jsonData));
 }
-
 /**
  *  localStorage에서 데이터를 불러옵니다.
- * @param {string} [key="listItem"] - 사용할 localStorage 키
- * @returns {Array|boolean} - 불러온 데이터 배열 또는 실패 시 false
+ * @param {string} key - 사용할 localStorage 키
+ * @returns {Array} - 불러온 데이터 배열 또는 실패 시 빈 배열 리턴
  */
-export function loadData(key = "listItem") {
-    //  localStorage에서 해당 키의 데이터를 가져옵니다.
+export function loadData(key) {
     const data = localStorage.getItem(key);
-
-    //  데이터가 없으면 콘솔에 오류 메시지를 출력하고 false를 반환합니다.
+    //  데이터가 없으면 콘솔에 오류 메시지를 출력하고 빈 배열을 반환.
     if (!data) {
         console.error("데이터를 불러오는데 실패했습니다. ");
-        return false;
+        return [];
     }
     //  JSON 문자열을 파싱하여 JavaScript 객체로 변환하여 반환합니다.
     return JSON.parse(data);
@@ -34,10 +26,10 @@ export function loadData(key = "listItem") {
 /**
  *  localStorage에서 특정 ID의 데이터를 삭제합니다.
  * @param {string} id - 삭제할 데이터의 ID
- * @param {string} [key="listItem"] - 사용할 localStorage 키
+ * @param {string} key - 사용할 localStorage 키
  * @returns {boolean} - 삭제 성공 여부
  */
-export function deleteDataById(id, key = "listItem") {
+export function deleteDataById(id, key ) {
     //  현재 데이터를 불러옵니다.
     let data = loadData(key);
     //  데이터가 없으면 false를 반환합니다.
